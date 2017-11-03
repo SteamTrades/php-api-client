@@ -21,7 +21,7 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
   "repositories": [
     {
       "type": "git",
-      "url": "https://github.com/streamtrades/public-api.git"
+      "url": "https://github.com/SteamTrades/php-api-client.git"
     }
   ],
   "require": {
@@ -40,15 +40,6 @@ Download the files and include `autoload.php`:
     require_once('/path/to/SwaggerClient-php/autoload.php');
 ```
 
-## Tests
-
-To run the unit tests:
-
-```
-composer install
-./vendor/bin/phpunit
-```
-
 ## Getting Started
 
 Please follow the [installation procedure](#installation--usage) and then run the following:
@@ -58,17 +49,16 @@ Please follow the [installation procedure](#installation--usage) and then run th
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: Token
-SteamTrades\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// SteamTrades\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+SteamTrades\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR API KEY HERE');
+SteamTrades\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Token');
 
 $api_instance = new SteamTrades\Api\TradeApi();
 
 try {
-    $result = $api_instance->gameGet();
+    $result = $api_instance->itemMineGet();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TradeApi->gameGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TradeApi->itemMineGet: ', $e->getMessage(), PHP_EOL;
 }
 
 ?>
